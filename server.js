@@ -2,11 +2,12 @@ var express = require('express')
 var app = express()
 var fs = require('fs')
 var youtubedl = require('youtube-dl')
-
+var popupS = require('popups')
 app.get('/download',(req,res)=>{
-  res.send('success '+req.query.param)
+  res.json('{ success: true }')
  var _url = req.query.param
   var url = "https://www.youtube.com/watch?v="+_url
+  res.redirect(url)
   var video  = youtubedl(url, ['--format=18'],{ cwd: __dirname });
 var options = ['--username=user', '--password=hunter2'];
 var name;
