@@ -2,7 +2,6 @@ var express = require('express')
 var app = express()
 var fs = require('fs')
 var youtubedl = require('youtube-dl')
-var popupS = require('popups')
 app.get('/download',(req,res)=>{
   res.json('{ success: true }')
  var _url = req.query.param
