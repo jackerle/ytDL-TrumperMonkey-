@@ -3,7 +3,6 @@ var app = express()
 var fs = require('fs')
 var youtubedl = require('youtube-dl')
 app.get('/download',(req,res)=>{
-  res.json('{ success: true }')
  var _url = req.query.param
   var url = "https://www.youtube.com/watch?v="+_url
   res.redirect(url)
