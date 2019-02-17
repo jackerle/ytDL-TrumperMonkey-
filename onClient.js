@@ -17,6 +17,7 @@
 
 var currentLocation = window.location.href;
 console.log(currentLocation);
+
 function polymerInject(){
 
     /* Create button */
@@ -27,7 +28,7 @@ function polymerInject(){
     var addForm = document.createElement("form");
     var url = window.location.href
     var param = url.substring((url.indexOf("watch?v="))+8)
-    addForm.action = 'http://localhost:3000/downlaod'
+    addForm.action = 'http://localhost:3000/download'
 
     var s_param = document.createElement("input");
     s_param.type = "hidden"
@@ -41,7 +42,7 @@ function polymerInject(){
 
 
     addButton.style.width = "100%";
-    addButton.style.backgroundColor = "#181717";
+    addButton.style.backgroundColor = "#4286f4";
     addButton.style.color = "white";
     addButton.style.textAlign = "center";
     addButton.style.padding = "10px 0";
@@ -52,8 +53,7 @@ function polymerInject(){
     addButton.style.borderRadius = "2px";
     addButton.style.fontFamily = "Roboto, Arial, sans-serif";
     addButton.type = "submit"
-    addButton.value = "sendParam"
-
+    addButton.value = "Download!"
     addForm.appendChild(addButton);
     buttonDiv.appendChild(addForm);
 
@@ -70,6 +70,7 @@ function polymerInject(){
 
     }
 
+
     /* Fix hidden description bug */
     var descriptionBox = document.querySelectorAll("ytd-video-secondary-info-renderer");
     if(descriptionBox[0].className.indexOf("loading") > -1){
@@ -79,40 +80,9 @@ function polymerInject(){
     }
 
 }
-function run(){
-
-    if(!document.getElementById("parentButton") && window.location.href.substring(0, 25).indexOf("youtube.com") > -1 && window.location.href.indexOf("watch?") > -1){
-
-        var parentButton = document.createElement("div");
-
-        parentButton.className = "yt-uix-button yt-uix-button-default";
-        parentButton.id = "parentButton";
-
-        parentButton.style.height = "23px";
-        parentButton.style.marginLeft = "28px";
-        parentButton.style.paddingBottom = "1px";
-
-        parentButton.onclick = function () {
-
-            this.remove();
 
 
-        };
-
-        document.getElementById("watch7-user-header").appendChild(parentButton);
-
-        var childButton = document.createElement("span");
-        childButton.appendChild(document.createTextNode("Download MP3"));
-        childButton.className = "yt-uix-button-content";
-
-        childButton.style.lineHeight = "25px";
-        childButton.style.fontSize = "12px";
-
-        parentButton.appendChild(childButton);
-
-    }
-
-}if(document.getElementById("polymer-app") || document.getElementById("masthead") || window.Polymer){
+if(document.getElementById("polymer-app") || document.getElementById("masthead") || window.Polymer){
 
     setInterval(function(){
 
